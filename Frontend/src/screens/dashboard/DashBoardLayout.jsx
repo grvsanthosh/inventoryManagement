@@ -82,9 +82,9 @@ function DashBoardLayout() {
       {/* home screen logout component */}
       {!data && (
         <div className="min-h-screen flex items-center justify-center">
-          <div class="relative">
-            <img src={loginLogo} alt="Image" class="block w-full" />
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center   text-white p-4">
+          <div className="relative">
+            <img src={loginLogo} alt="Image" className="block w-full" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center   text-white p-4">
               <Link
                 to={"auth"}
                 className="px-6 py-2 animate-pulse rounded-md text-lg  bg-blue-800"

@@ -77,13 +77,13 @@ function SignupScreen() {
             onSubmit={(e) => handleSignIN(e)}
           >
             <div className="flex flex-col space-y-1">
-              <label for="name" className="text-sm font-semibold text-gray-500">
+              <label htmlFor="name" className="text-sm font-semibold text-gray-500">
                 User Name
               </label>
               <input
                 type="name"
                 id="name"
-                autofocus
+                autoFocus
                 onChange={handInputChange}
                 required
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
@@ -91,7 +91,7 @@ function SignupScreen() {
             </div>
             <div className="flex flex-col space-y-1">
               <label
-                for="email"
+                htmlFor="email"
                 className="text-sm font-semibold text-gray-500"
               >
                 Email address
@@ -100,7 +100,7 @@ function SignupScreen() {
                 type="email"
                 id="email"
                 onChange={handInputChange}
-                autofocus
+                autoFocus
                 required
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
               />
@@ -108,7 +108,7 @@ function SignupScreen() {
             <div className="flex flex-col space-y-1">
               <div className="flex items-center justify-between">
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="text-sm font-semibold text-gray-500"
                 >
                   Password
@@ -129,7 +129,7 @@ function SignupScreen() {
                 className="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
               />
               <label
-                for="remember"
+                htmlFor="remember"
                 className="text-sm font-semibold text-gray-500"
               >
                 Remember me
