@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import HeaderBar from "../../components/HeaderBar";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
