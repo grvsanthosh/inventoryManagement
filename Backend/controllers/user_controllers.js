@@ -1,5 +1,5 @@
 import User from "../models/user_model.js";
-import bcrypt from "bcrypt";
+import auth from "../common/auth.js";
 import { sendcookie } from "../utils/user_utils.js";
 
 export const getAllUsers = async (req, res) => {
@@ -50,8 +50,10 @@ export const getAllUsers = async (req, res) => {
 export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    console.log("inside login")
+
     console.log(req.body)
-    const user = await User.findOne({ email }).select("+password");
+    const user = await User.findOne({ email },{_id:1,password:1,name:1,email:1});
     console.log("user: ",user)
     if (!user) {
       return res.status(404).json({
@@ -60,7 +62,8 @@ export const login = async (req, res, next) => {
       });
     }
 
-    const encrypted = await bcrypt.compare(password, user.password);
+    // const encrypted = await auth.hashcompare(password, user.password);
+    const encrypted = await auth.hashcompare(password,user.password)
     if (!encrypted) {
       return res.status(404).json({
         success: false,
@@ -85,10 +88,12 @@ export const register = async (req, res, next) => {
       });
     }
 
-    const hashedpassword = await bcrypt.hash(password, 10);
-    user = await User.create({ name, email, password: hashedpassword });
+    // const hashedpassword = await bcrypt.hash(password, 10);
+    const hashpassword = await auth.hashedPassword(password)
+    user = await User.create({ name, email, password: hashpassword });
 
     sendcookie(user, res, "successfully registered", 201);
+    
   } catch (e) {
     throw next(e);
   }
